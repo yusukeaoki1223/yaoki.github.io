@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yusuke Aoki's Homepage</title>
-   <!-- Link to Font Awesome for icons -->
+    <!-- Noto Sans Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -12,76 +14,124 @@
       crossorigin="anonymous"
     >
     <style>
-        /* General Page Styling */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Noto Sans', sans-serif;
             margin: 0;
             display: flex;
         }
 
         /* Sidebar Styling */
         .sidebar {
-            width: 220px;
+            width: 240px;
             height: 100vh;
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 20px 10px;
+            padding: 30px 15px;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
         }
 
         .sidebar h3 {
-            margin-bottom: 20px;
+            font-size: 18px;
             color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
         }
 
         .sidebar a {
-            display: flex;
-            align-items: center;
             text-decoration: none;
             color: #555;
-            padding: 10px 15px;
-            margin: 5px 0;
-            width: 100%;
-            transition: 0.3s ease;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #e9ecef;
+            color: #007bff;
         }
 
         .sidebar a i {
             margin-right: 10px;
-            font-size: 20px;
-            color: #333;
-        }
-
-        .sidebar a:hover {
-            background-color: #ddd;
-            border-radius: 5px;
-            color: #000;
+            color: #007bff;
         }
 
         /* Main Content Styling */
         .main-content {
             flex: 1;
-            padding: 40px;
             text-align: center;
+            padding: 20px 40px;
         }
 
         header {
-            background-color: #f8f8f8;
-            padding: 10px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
             border-bottom: 1px solid #ddd;
         }
 
         header h1 {
+            font-size: 36px;
             margin: 0;
+            color: #333;
         }
 
+        header p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* Navigation Tabs */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            border-bottom: 3px solid #007bff;
+            color: #007bff;
+        }
+
+        /* Tab Content */
         .tab-content {
             display: none;
+            margin-top: 20px;
         }
 
         .tab-content.active {
             display: block;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        strong {
+            font-weight: 700;
         }
     </style>
 </head>
@@ -89,8 +139,7 @@
     <!-- Left Sidebar -->
     <div class="sidebar">
         <h3>Contact</h3>
-        <a href="mailto:yaoki@indeed.com" target="_blank">
-            <i class="fas fa-envelope"></i>Email
+        <a href="mailto:yaoki@indeed.com" target="_blank"><i class="fas fa-envelope"></i>Email
         </a>
         <a href="https://www.linkedin.com/in/yusuke-aoki-2aa35b59/" target="_blank">
             <i class="fab fa-linkedin"></i>LinkedIn
@@ -154,14 +203,17 @@
             <p>coming soon.</p>
         </div>
     </div>
-   <!-- JavaScript for Tabs -->
+    <!-- JavaScript -->
     <script>
         function openTab(event, tabName) {
             const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active'));
+            const tabs = document.querySelectorAll('nav a');
 
-            const selectedContent = document.getElementById(tabName);
-            selectedContent.classList.add('active');
+            contents.forEach(content => content.classList.remove('active'));
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
         }
     </script>
 </body>
