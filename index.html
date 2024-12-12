@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yusuke Aoki's Homepage</title>
-    <!-- Link to Font Awesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+   <!-- Link to Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb5Hb91qr91BJIH3OE3uBrW1a2+6O1Epzfu1W"
+      crossorigin="anonymous"
+    >
     <style>
         /* General Page Styling */
         body {
@@ -107,7 +112,12 @@
             <h1>Yusuke Aoki</h1>
             <p>Economist at Indeed Hiring Lab</p>
         </header>
-
+       <!-- Navigation Tabs -->
+        <nav>
+            <a href="#home" onclick="openTab(event, 'home')">Home</a>
+            <a href="#research" onclick="openTab(event, 'research')">Research</a>
+            <a href="#cv" onclick="openTab(event, 'cv')">CV</a>
+        </nav>
         <!-- Home Content -->
         <div id="home" class="tab-content active">
             <h2>Welcome to My Homepage</h2>
@@ -144,7 +154,7 @@
             <p>coming soon.</p>
         </div>
     </div>
-    <!-- JavaScript for Tabs -->
+   <!-- JavaScript for Tabs -->
     <script>
         function openTab(event, tabName) {
             const contents = document.querySelectorAll('.tab-content');
